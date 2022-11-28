@@ -1,8 +1,8 @@
-/* Using /pp231/api/user invoking */
+/* Using /api/user invoking */
 /* send request to my api for get all users */
 function loadTable() {
   const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "/pp231/api/users");
+  xhttp.open("GET", "/api/users");
   xhttp.send();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -56,7 +56,7 @@ function userCreate() {
   const email = document.getElementById("email").value;
 
   const xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "/pp231/api/users/create");
+  xhttp.open("POST", "/api/users/create");
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(
     JSON.stringify({
@@ -94,7 +94,7 @@ function userCreate() {
 // show update dialog
 function showUserEditBox(id) {
   const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "/pp231/api/users/" + id);
+  xhttp.open("GET", "/api/users/" + id);
   xhttp.send();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -131,7 +131,7 @@ function userEdit() {
   const lastName = document.getElementById("lastName").value;
   const email = document.getElementById("email").value;
   const xhttp = new XMLHttpRequest();
-  xhttp.open("PUT", "/pp231/api/users/update/" + id);
+  xhttp.open("PUT", "/api/users/update/" + id);
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(
     JSON.stringify({
@@ -166,7 +166,7 @@ function userDelete(id) {
   }).then((result) => {
     if (result.isConfirmed) {
       const xhttp = new XMLHttpRequest();
-      xhttp.open("DELETE", "/pp231/api/users/delete/" + id, true);
+      xhttp.open("DELETE", "/api/users/delete/" + id, true);
       xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
       xhttp.send(

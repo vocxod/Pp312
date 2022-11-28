@@ -11,18 +11,18 @@ import java.util.List;
 import java.time.LocalTime;
 
 @Controller
-public class HelloController {
+public class HomeController {
 
-  private final Logger logger = LogManager.getLogger(HelloController.class.getName());
+  private final Logger logger = LogManager.getLogger(HomeController.class.getName());
 
-  @GetMapping("/hello")
+  @GetMapping("/home")
   public String hello(ModelMap model) {
     LocalTime lt = LocalTime.now();
     List<String> messages = new ArrayList<>();
     messages.add("Now time is:" + lt.toString());
     model.addAttribute("messages", messages);
     logger.info("\u001B[33m Start Hello page with message: {} \u001B[0m", messages);
-    return "hello";
+    return "home";
   }
 
 }
