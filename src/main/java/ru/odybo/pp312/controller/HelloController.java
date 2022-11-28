@@ -13,10 +13,10 @@ import java.time.LocalTime;
 @Controller
 public class HelloController {
 
-  private final Logger logger = LogManager.getLogger(StartController.class.getName());
+  private final Logger logger = LogManager.getLogger(HelloController.class.getName());
 
-  @GetMapping("/")
-  public String start(ModelMap model) {
+  @GetMapping("/hello")
+  public String hello(ModelMap model) {
     LocalTime lt = LocalTime.now();
     List<String> messages = new ArrayList<>();
     messages.add("Now time is:" + lt.toString());
