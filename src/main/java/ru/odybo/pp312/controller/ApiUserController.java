@@ -41,7 +41,7 @@ public class ApiUserController {
   @GetMapping
   public List<User> listUsers() {
     logger.info("\u001B[1;32m get All users \u001B[0m");
-    return userService.listUsers();
+    return userService.getUsers();
   }
 
   @GetMapping(value = "/{id}")
@@ -49,7 +49,7 @@ public class ApiUserController {
     logger.info("\u001B[1;33m Get userId " + id + " data. \u001B[0m");
     User user;
     try {
-      user = userService.findById(id);
+      user = userService.getUserById(id);
     } catch (Exception e) {
       user = null;
     }
