@@ -31,9 +31,12 @@ import ru.odybo.pp312.service.UserService;
 public class ApiUserController {
 
   private static final Logger logger = LogManager.getLogger(ApiUserController.class);
+  private UserService userService;
 
   @Autowired
-  private UserService userService;
+  public ApiUserController(UserService userService) {
+    this.userService = userService;
+  }
 
   @GetMapping
   public List<User> listUsers() {

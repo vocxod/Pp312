@@ -36,7 +36,7 @@ public class UserDaoImp implements UserDao {
   }
 
   @Override
-  @SuppressWarnings("unchecked")
+  // @SuppressWarnings("unchecked")
   public List<User> listUsers() {
     List<User> users = entityManager.createQuery("SELECT user FROM User user").getResultList();
     return users;
@@ -44,6 +44,7 @@ public class UserDaoImp implements UserDao {
 
   @Override
   public User findById(Long id) {
+    logger.info("\u001B[1;32m Find user by id: " + id + ". \u001B[0m");
     User user = entityManager.find(User.class, id);
     entityManager.detach(user);
     return user;
